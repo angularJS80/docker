@@ -1,0 +1,18 @@
+version: '2'
+services:
+  nginx: 
+    image: docker.io:centos
+    build: /docker-file/centos7nginx
+    user: root
+    cap_add:
+    - SYS_ADMIN
+    privileged: true
+    command: /usr/sbin/init
+    container_name: nginx
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf
+      - ./config/sites-available:/etc/nginx/sites-available
+      - ./config/sites-enabled:/etc/nginx/sites-enabled
+      - ./config/sslcert:/etc/nginx/sslcert
+    ports:
+      - 443:443

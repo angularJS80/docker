@@ -1,0 +1,8 @@
+version: '2'
+services:
+  jenkinsdood:
+    image: 'axltxl/jenkins-dood'
+    hostname: 'localhost'
+    container_name: jenkinsdood
+    ports:
+    - '29080:8080'

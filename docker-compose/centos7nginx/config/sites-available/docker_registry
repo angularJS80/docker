@@ -1,0 +1,39 @@
+   upstream dockerrepository {
+        ip_hash;
+        server 172.31.34.84:5000 weight=1; #tomcat1
+   }
+
+   server {
+        listen       443 ssl;
+        server_name  cho80.cho80.com;
+        #ssl on;
+        ssl_certificate /etc/nginx/sslcert/server.crt;
+        ssl_certificate_key /etc/nginx/sslcert/server.key;
+        proxy_set_header Host           $http_host;
+        proxy_set_header X-Real-IP      $remote_addr;
+        proxy_set_header Authorization  "";
+        client_max_body_size 0;
+        chunked_transfer_encoding on;
+
+        location / {
+            proxy_pass          http://dockerrepository;
+            proxy_set_header        Host                    $host;
+            proxy_set_header        X-Real-IP               $remote_addr;
+            proxy_set_header        X-Forwarded-For         $proxy_add_x_forwarded_for;
+            proxy_set_header        X-Forwarded-Proto       "https";
+
+            auth_basic            "Restricted";
+            auth_basic_user_file  /etc/nginx/sslcert/.htpasswd;
+            proxy_buffer_size          128k;
+            proxy_buffers              4 256k;
+            proxy_busy_buffers_size    256k;
+
+            fastcgi_buffering               on;
+            fastcgi_buffer_size             16k;
+            fastcgi_buffers                 16 16k;
+            fastcgi_connect_timeout         600s;
+            fastcgi_send_timeout            600s;
+            fastcgi_read_timeout            600s;
+
+       }
+    }

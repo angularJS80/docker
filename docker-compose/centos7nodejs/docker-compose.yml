@@ -1,0 +1,16 @@
+version: '2'
+services:
+  nodejs:
+    image: 'docker.io/centos:nodejs'
+    build: /docker-file/centos7nodejs
+    user: root
+    cap_add:
+    - SYS_ADMIN
+    privileged: true
+    command: /usr/sbin/init
+    hostname: 'localhost'
+    container_name: nodejs
+    ports:
+    - '28000:8080'
+    volumes:
+    - /sys/fs/cgroup:/sys/fs/cgroup:ro

@@ -2,7 +2,7 @@ version: '2'
 services:
   nginx: 
     image: docker.io:centos
-    build: /docker-file/centos7nginx
+    build: ./../docker-file/centos7nginx
     user: root
     cap_add:
     - SYS_ADMIN

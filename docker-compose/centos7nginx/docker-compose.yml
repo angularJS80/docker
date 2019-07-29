@@ -1,7 +1,7 @@
 version: '2'
 services:
   nginx: 
-    image: centos:centos7
+    image: centos:nginxCentos7
     build: ./
     user: root
     cap_add:

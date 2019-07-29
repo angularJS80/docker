@@ -1,8 +1,8 @@
 version: '2'
 services:
   nodejs:
-    image: 'docker.io/centos:nodejs'
-    build: /docker-file/centos7nodejs
+    image: centos:centos7
+    build: ./
     user: root
     cap_add:
     - SYS_ADMIN

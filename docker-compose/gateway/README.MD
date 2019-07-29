@@ -1,1 +1,0 @@
-domain.domain.com 을 물리 주소로 변경

@@ -1,0 +1,17 @@
+web:
+  image: 'gitlab/gitlab-ce'
+  restart: always
+  hostname: 'example.org'
+  container_name: gitlab
+  environment:
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url 'http://example.org:20080'
+      # Add any other gitlab.rb configuration here, each on its own line
+  ports:
+    - '20080:80'
+    - '20443:443'
+    - '20022:22'
+#  volumes:
+#    - './srv/gitlab/config:/etc/gitlab'
+#    - './srv/gitlab/logs:/var/log/gitlab'
+#    - './srv/gitlab/data:/var/opt/gitlab'

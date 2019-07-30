@@ -1,0 +1,18 @@
+version: '2'
+services:
+  gateway-app:
+    image: cho80.cho80.com/gateway
+    environment:
+      - _JAVA_OPTIONS=-Xmx256m -Xms128m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@172.31.34.84:8761/eureka
+      - JHIPSTER_EUREKA_INSTANCE_HOSTNAME=172.31.34.84
+      - JHIPSTER_CLOUD_STREAM_KAFKA_BINDER_BROKERS=18.182.160.240
+      - JHIPSTER_CLOUD_STREAM_KAFKA_BINDER_ZK-NODES=18.182.160.240
+      - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@172.31.34.84:8761/config
+      - SPRING_DATASOURCE_URL=jdbc:mysql://172.31.34.84:3306/gateway?useUnicode=true&characterEncoding=utf8&useSSL=false
+      - JHIPSTER_SLEEP=30 # gives time for the JHipster Registry to boot before the application
+    ports:
+      - 8080:8080
+

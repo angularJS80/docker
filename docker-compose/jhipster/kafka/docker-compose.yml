@@ -1,0 +1,20 @@
+version: '2'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper:3.4.6
+    ports:
+      - 2181:2181
+  kafka:
+    image: wurstmeister/kafka:2.11-2.0.1
+    environment:
+      KAFKA_JVM_PERFORMANCE_OPTS: " -Xmx256m -Xms128m"
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://18.182.160.240:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_ADVERTISED_HOST_NAME: 172.31.34.84
+      KAFKA_ADVERTISED_PORT: 9092      
+      KAFKA_ZOOKEEPER_CONNECT: 172.31.34.84:2181
+      KAFKA_CREATE_TOPICS: 'topic-jhipster:1:1'
+
+    ports:
+      - 9092:9092
+

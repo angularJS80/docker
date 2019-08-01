@@ -13,4 +13,7 @@ services:
     ports:
     - '28000:8080'
     volumes:
-    - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    - /sys/fs/cgroup:/sys/fs/cgroup:ro:wq!
+    environment:
+    - MONGODB_SERVER="172.31.37.239"
+    

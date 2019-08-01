@@ -15,5 +15,5 @@ services:
     volumes:
     - /sys/fs/cgroup:/sys/fs/cgroup:ro:wq!
     environment:
-    - MONGODB_SERVER="172.31.37.239"
+    - MONGODB_SERVER=172.31.37.239
     

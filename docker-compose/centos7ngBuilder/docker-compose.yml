@@ -11,8 +11,8 @@ services:
     hostname: 'localhost'
     container_name: ngBuilder
     volumes:
-    - /sys/fs/cgroup:/sys/fs/cgroup:ro:wq!
     - ./data:/usr/local/bin/ng-try
+    - /sys/fs/cgroup:/sys/fs/cgroup:ro:wq!
     environment:
     - BACKEND_SERVER=172.31.37.239
     

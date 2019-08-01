@@ -1,0 +1,18 @@
+version: '2'
+services:
+  ngBuilder:
+    image: centos:angularCentos7
+    build: ./
+    user: root
+    cap_add:
+    - SYS_ADMIN
+    privileged: true
+    command: /usr/sbin/init
+    hostname: 'localhost'
+    container_name: ngBuilder
+    volumes:
+    - /sys/fs/cgroup:/sys/fs/cgroup:ro:wq!
+    - ./data:/usr/local/bin/ng-try
+    environment:
+    - BACKEND_SERVER=172.31.37.239
+    

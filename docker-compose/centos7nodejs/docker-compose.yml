@@ -8,6 +8,7 @@ services:
     - SYS_ADMIN
     privileged: true
     command: /usr/sbin/init
+    command: node app.js
     hostname: 'localhost'
     container_name: nodejs
     ports:

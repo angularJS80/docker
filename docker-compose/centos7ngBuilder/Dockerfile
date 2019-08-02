@@ -68,4 +68,3 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 CMD ["/usr/sbin/init"]
 CMD ["/bin/bash"]
 WORKDIR /usr/local/bin/nd-try
-CMD ["pm2 start app.js"]

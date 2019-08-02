@@ -39,8 +39,8 @@ RUN yum -y install npm
 # Git
 Run yum -y install git
 RUN git clone https://github.com/angularJS80/ng-try.git /usr/local/bin/ng-try
-RUN npm install --prefix /usr/local/bin/ng-try
 RUN npm install -g @angular/cli@latest
+RUN npm install --prefix /usr/local/bin/ng-try
 RUN ng build --prod
 # 먼지몰라
 

@@ -34,7 +34,10 @@ RUN yum clean all \
 RUN  yum -y install net-tools wget tar unzip vi vim telnet net-tools curl openssl
 
 # NodeJs
-RUN yum -y install npm nodejs
+RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+RUN yum clean all && yum makecache fast
+RUN yum install -y gcc-c++ make
+RUN yum install -y nodejs
 
 # Git
 Run yum -y install git

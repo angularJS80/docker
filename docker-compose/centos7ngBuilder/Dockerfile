@@ -42,10 +42,10 @@ RUN yum install -y nodejs
 # Git
 Run yum -y install git
 RUN git clone https://github.com/angularJS80/ng2-try.git /usr/local/bin/ng2-try
-RUN npm install -g @angular/cli
-RUN cd /usr/local/bin/ng2-try
+#RUN npm install -g @angular/cli
+#RUN cd /usr/local/bin/ng2-try
 #RUN npm install
-RUN ng build --prod
+#RUN ng build --prod
 # 먼지몰라
 
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \

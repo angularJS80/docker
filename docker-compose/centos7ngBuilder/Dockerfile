@@ -35,6 +35,7 @@ RUN  yum -y install net-tools wget tar unzip vi vim telnet net-tools curl openss
 
 # NodeJs
 RUN yum -y install npm
+RUN npm update -g
 
 # Git
 Run yum -y install git

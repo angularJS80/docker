@@ -8,7 +8,6 @@ services:
     - SYS_ADMIN
     privileged: true
     command: /usr/sbin/init
-    command: npm install
     hostname: 'localhost'
     container_name: ngBuilder
     volumes:

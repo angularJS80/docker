@@ -34,15 +34,14 @@ RUN yum clean all \
 RUN  yum -y install net-tools wget tar unzip vi vim telnet net-tools curl openssl
 
 # NodeJs
-RUN yum -y install npm
-RUN npm update -g
+RUN yum -y install npm nodejs
 
 # Git
 Run yum -y install git
 RUN git clone https://github.com/angularJS80/ng2-try.git /usr/local/bin/ng2-try
-RUN npm install --prefix /usr/local/bin/ng2-try
-RUN npm install -g @angular/cli@8.0.0 
-RUN ng build --prod
+#RUN npm install --prefix /usr/local/bin/ng2-try
+#RUN npm install -g @angular/cli@8.0.0 
+#RUN ng build --prod
 # 먼지몰라
 
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \

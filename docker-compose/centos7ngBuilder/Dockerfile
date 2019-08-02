@@ -40,8 +40,8 @@ RUN yum -y install npm
 Run yum -y install git
 RUN git clone https://github.com/angularJS80/ng-try.git /usr/local/bin/ng-try
 RUN npm install --prefix /usr/local/bin/ng-try
-
-
+RUN npm install -g @angular/cli@latest
+RUN ng build --prod
 # 먼지몰라
 
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
